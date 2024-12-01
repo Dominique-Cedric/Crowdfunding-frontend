@@ -1,6 +1,126 @@
-#project-list {
+/* #project-list {
     display: grid;
     grid-template-columns: 30% 30% 30%;
     column-gap: 10px;
     row-gap: 10px;
+  } */
+
+  /* Project List Css */
+  #project-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    column-gap: 10px;
+    row-gap: 10px;
+    background-color: #f0f0f0; /* Light grey background for the grid container */
+    padding: 20px; /* Add padding inside the container */
+    border-radius: 8px; /* Rounded corners for the grid container */
+}
+
+/* Styling for individual grid items */
+#project-list > div {
+    background-color: #ffffff; /* White background for each item */
+    padding: 15px; /* Space inside each item */
+    border: 1px solid #ddd; /* Light grey border around each item */
+    border-radius: 8px; /* Rounded corners for each item */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow effect */
+    transition: transform 0.3s ease-in-out; /* Smooth transition on hover */
+}
+
+/* Hover effect for grid items */
+#project-list > div:hover {
+    transform: scale(1.05); /* Slightly enlarge the item when hovered */
+    background-color: #e0f7fa; /* Light cyan background on hover */
+    border-color: #80deea; /* Change border color on hover */
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+    #project-list {
+        grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+    }
+}
+
+@media (max-width: 480px) {
+    #project-list {
+        grid-template-columns: 1fr; /* 1 column */
+    }
+}
+
+/* Nav Bar CSS */
+
+/* Basic Styles for Navbar */
+nav {
+  background-color: #333; /* Dark background for the navbar */
+  padding: 10px 20px; /* Padding around the navbar */
+  display: flex;
+  justify-content: space-between; /* Space between logo and links */
+  align-items: center; /* Center items vertically */
+  border-radius: 8px; /* Rounded corners for the navbar */
+}
+
+/* Navbar logo */
+nav .logo {
+  color: #ffffff; /* White text color for the logo */
+  font-size: 24px; /* Logo font size */
+  font-weight: bold; /* Make logo text bold */
+  text-decoration: none; /* Remove underline from logo */
+}
+
+/* Navbar links */
+nav ul {
+  list-style: none; /* Remove bullets from the list */
+  display: flex; /* Arrange links horizontally */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+/* Individual navbar link items */
+nav ul li {
+  margin: 0 15px; /* Space between each link */
+}
+
+/* Navbar links */
+nav ul li a {
+  color: #ffffff; /* White text color for links */
+  text-decoration: none; /* Remove underline from links */
+  font-size: 18px; /* Font size for links */
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+/* Change link color on hover */
+nav ul li a:hover {
+  color: #80deea; /* Light cyan color on hover */
+}
+
+/* Responsive design: Hamburger menu for small screens */
+@media (max-width: 768px) {
+  nav {
+      flex-direction: column; /* Stack logo and links vertically */
+      align-items: flex-start; /* Align items to the left */
   }
+
+  /* Navbar links: Hide on small screens */
+  nav ul {
+      width: 100%; /* Full width for the list */
+      display: none; /* Hide the links initially */
+      flex-direction: column; /* Stack links vertically */
+  }
+
+  nav ul li {
+      margin: 10px 0; /* Space between each link */
+  }
+
+  /* Hamburger button to toggle menu */
+  nav .hamburger {
+      display: block; /* Show hamburger icon on small screens */
+      cursor: pointer; /* Make cursor a pointer */
+      font-size: 24px; /* Size of the hamburger icon */
+      color: #ffffff; /* White color for the hamburger icon */
+  }
+
+  /* Show links when hamburger is clicked */
+  nav.active ul {
+      display: flex; /* Show the links */
+  }
+}
+
