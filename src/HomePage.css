@@ -51,7 +51,7 @@
 /* Basic Styles for Navbar */
 nav {
   background-color: #333; /* Dark background for the navbar */
-  padding: 10px 20px; /* Padding around the navbar */
+  padding: 30px 20px; /* Padding around the navbar */
   display: flex;
   justify-content: space-between; /* Space between logo and links */
   align-items: center; /* Center items vertically */
@@ -83,7 +83,7 @@ nav ul li {
 nav ul li a {
   color: #ffffff; /* White text color for links */
   text-decoration: none; /* Remove underline from links */
-  font-size: 18px; /* Font size for links */
+  font-size: 50px; /* Font size for links */
   transition: color 0.3s ease; /* Smooth color transition on hover */
 }
 
