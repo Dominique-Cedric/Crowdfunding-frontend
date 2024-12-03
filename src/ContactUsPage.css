@@ -1,0 +1,12 @@
+/* Responsive design */
+@media (max-width: 768px) {
+    .contact-form {
+      padding: 15px;
+      width: 90%;
+    }
+  
+    .submit-btn {
+      font-size: 14px;
+    }
+  }
+  

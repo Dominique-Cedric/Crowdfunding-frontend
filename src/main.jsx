@@ -5,9 +5,11 @@ import HomePage from "./pages/HomePage.jsx";
 
 import LoginPage from "./pages/LoginPage.jsx";
 import NavBar from "./components/NavBar.jsx";
-
 import SignUpForm from "./components/SignUpForm.jsx";
+import ContactUsForm from "./components/ContactUsForm.jsx";
+
 import { AuthProvider } from "./components/AuthProvider.jsx";
+import ProjectPage from "./pages/ProjectPage.jsx";
 
 
 const router = createBrowserRouter([
@@ -16,10 +18,10 @@ const router = createBrowserRouter([
     element: <NavBar />,
     children: [
       { path: "/", element: <HomePage /> },
-     { path: "/login", element: <LoginPage /> },
-      // { path: "/project/:id", element: <ProjectPage /> },
-      // { path: "/projects", element: <ProjectsPage /> },
+      { path: "/login", element: <LoginPage /> },
       { path: "/signup", element: <SignUpForm /> },
+      { path: "/contactus", element: <ContactUsForm /> },
+      { path: "/project/:id", element: <ProjectPage /> },
     ],
   },
 ]);
@@ -32,3 +34,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </AuthProvider>
   </React.StrictMode>
 );
+

@@ -13,16 +13,21 @@ function NavBar() {
 
     return (
         <div>
-            <nav>
-                <Link to="/">Home</Link>
+            <nav>              
+                <Link to="/" style={{color: 'white'}}>Home</Link>
 
                {auth.token ? (
-                   <Link to="/" onClick={handleLogout}>
+                   <Link to="/" onClick={handleLogout} style={{color: 'white'}}>
                        Log Out
                    </Link>
                    ) : (
-                   <Link to="/login">Login</Link>
+                   <Link to="/login" style={{color: 'white'}} > Login</Link>
+                   
                )}
+               <Link to="/signup" style={{color: 'white'}}>Sign Up</Link>
+               <Link to="/contactus" style={{color: 'white'}}>Contact Us</Link>
+
+
             </nav>
             <Outlet />
         </div>
