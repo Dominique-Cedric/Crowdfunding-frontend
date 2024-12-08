@@ -122,5 +122,14 @@ nav ul li a:hover {
   nav.active ul {
       display: flex; /* Show the links */
   }
+
+  footer {
+    justify-content: center;
+   }
+
+   footer .socials-icon {
+    margin-left: 20px;
+    margin-right: 20px;
+   }
 }
 

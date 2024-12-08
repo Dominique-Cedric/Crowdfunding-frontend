@@ -1,37 +1,45 @@
-import { Link, Outlet } from "react-router-dom";
- import useAuth from "../hooks/use-auth.js";
+import { NavLink, Outlet } from "react-router-dom";
+import useAuth from "../hooks/use-auth.js";
+import './navbar.css';  // Add this line at the top of your NavBar component
+
 
 function NavBar() {
-   const {auth, setAuth} = useAuth();
+   const { auth, setAuth } = useAuth();
 
    const handleLogout = () => {
        window.localStorage.removeItem("token");
        setAuth({ token: null });
    };
 
-    console.log(auth)
+   console.log(auth);
 
-    return (
-        <div>
-            <nav>              
-                <Link to="/" style={{color: 'white'}}>Home</Link>
+   return (
+       <div>
+           <nav>              
+               <NavLink to="/" className="nav-link" activeClassName="active">
+                   Home
+               </NavLink>
 
                {auth.token ? (
-                   <Link to="/" onClick={handleLogout} style={{color: 'white'}}>
+                   <NavLink to="/" onClick={handleLogout} className="nav-link">
                        Log Out
-                   </Link>
-                   ) : (
-                   <Link to="/login" style={{color: 'white'}} > Login</Link>
-                   
+                   </NavLink>
+               ) : (
+                   <NavLink to="/login" className="nav-link">
+                       Login
+                   </NavLink>
                )}
-               <Link to="/signup" style={{color: 'white'}}>Sign Up</Link>
-               <Link to="/contactus" style={{color: 'white'}}>Contact Us</Link>
 
-
-            </nav>
-            <Outlet />
-        </div>
-    );
+               <NavLink to="/signup" className="nav-link">
+                   Sign Up
+               </NavLink>
+               <NavLink to="/contactus" className="nav-link">
+                   Contact Us
+               </NavLink>
+           </nav>
+           <Outlet />
+       </div>
+   );
 }
 
 export default NavBar;

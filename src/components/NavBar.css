@@ -1,0 +1,37 @@
+/* Navbar container */
+nav {
+    background-color: #333;  /* Dark background color */
+    padding: 10px 20px;  /* Padding for spacing */
+    display: flex; /*  Flexbox for layout */
+    
+    justify-content: space-between;  /* Space out the items */
+    align-items: center;  /* Vertically center the items */
+}
+
+
+
+/* Navbar links */
+nav a {
+    color: white;  /* Text color */
+    text-decoration: none;  /* Remove underline */
+    margin-right: 20px;  /* Space between links */
+    font-size: 16px;  /* Font size */
+    font-weight: 500;  /* Make text slightly bold */
+    transition: color 0.3s ease;  /* Smooth color transition for hover */
+}
+
+/* Hover effect for links */
+nav a:hover {
+    color: #00bcd4;  /* Change color on hover */
+}
+
+/* Last link - no margin-right */
+nav a:last-child {
+    margin-right: 0;
+}
+
+/* Active link styling */
+nav a.active {
+    font-weight: 700;  /* Make active link bold */
+    color: #ff4081;  /* Highlight active link with a different color */
+}
