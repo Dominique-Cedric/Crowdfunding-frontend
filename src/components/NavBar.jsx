@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 import useAuth from "../hooks/use-auth.js";
-import './navbar.css';  // Add this line at the top of your NavBar component
+import './NavBar.css';  // Add this line at the top of your NavBar component
 
 
 function NavBar() {
