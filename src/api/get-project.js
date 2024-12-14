@@ -15,3 +15,5 @@ export async function getProject(id) {
     return null;
   }
 }
+
+export default getProject;
