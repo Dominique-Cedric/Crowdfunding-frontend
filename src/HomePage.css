@@ -47,15 +47,18 @@
 }
 
 /* Nav Bar CSS */
-
-/* Basic Styles for Navbar */
 nav {
-  background-color: #333; /* Dark background for the navbar */
-  padding: 30px 20px; /* Padding around the navbar */
+  background-color: #333;
+  padding: 30px 20px;
   display: flex;
-  justify-content: space-between; /* Space between logo and links */
-  align-items: center; /* Center items vertically */
-  border-radius: 8px; /* Rounded corners for the navbar */
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0; /* Remove border radius for sticky nav */
+  position: sticky; /* Make navbar sticky */
+  top: 0; /* Stick to top of viewport */
+  z-index: 1000; /* Ensure navbar stays above other content */
+  width: 100%; /* Full width */
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 /* Navbar logo */
@@ -68,10 +71,12 @@ nav .logo {
 
 /* Navbar links */
 nav ul {
-  list-style: none; /* Remove bullets from the list */
-  display: flex; /* Arrange links horizontally */
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  justify-content: center; /* Center the links horizontally */
+  flex-grow: 1; /* Allow the ul to take up available space */
 }
 
 /* Individual navbar link items */
@@ -81,15 +86,37 @@ nav ul li {
 
 /* Navbar links */
 nav ul li a {
-  color: #ffffff; /* White text color for links */
-  text-decoration: none; /* Remove underline from links */
-  font-size: 50px; /* Font size for links */
-  transition: color 0.3s ease; /* Smooth color transition on hover */
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 50px;
+  transition: all 0.3s ease; /* Smooth transition for all changes */
+  padding: 10px 15px; /* Add padding for hover effect */
+  border-radius: 5px; /* Rounded corners for hover effect */
+  position: relative; /* For underline effect */
 }
 
-/* Change link color on hover */
+/* Enhanced hover effect for links */
 nav ul li a:hover {
-  color: #80deea; /* Light cyan color on hover */
+  color: #80deea;
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle background on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Add underline effect on hover */
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #80deea;
+  transition: all 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+  left: 0;
 }
 
 /* Responsive design: Hamburger menu for small screens */
@@ -131,5 +158,125 @@ nav ul li a:hover {
     margin-left: 20px;
     margin-right: 20px;
    }
+}
+
+/* Add these footer styles */
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-wrapper {
+    flex: 1 0 auto;
+}
+
+.login-footer {
+    flex-shrink: 0;
+    width: 100%;
+    background: white;
+    padding: 2rem;
+    border-top: 1px solid #e5e7eb;
+    text-align: center;
+    margin-top: auto;
+}
+
+.login-footer .copyright {
+    color: #6b7280;
+    margin-bottom: 1rem;
+}
+
+.login-footer .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.login-footer .footer-links a {
+    color: #6b7280;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.login-footer .footer-links a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .footer-links {
+        gap: 1rem;
+    }
+}
+
+/* Add these styles for the sections */
+.projects-section {
+    margin-bottom: 3rem;
+    width: 100%;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: #1f2937;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+}
+
+#project-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* Three columns */
+    gap: 2rem;
+    padding: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    #project-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    #project-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+.projects-container {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    padding: 1rem;
+}
+
+.projects-section {
+    flex: 1;
+    min-width: 0;  /* Prevents flex items from overflowing */
+}
+
+.section-title {
+    font-size: 2rem;
+    color: #1f2937;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+}
+
+#project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+/* Responsive layout */
+@media (max-width: 1024px) {
+    .projects-container {
+        flex-direction: column;
+    }
 }
 

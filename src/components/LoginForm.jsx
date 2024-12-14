@@ -35,8 +35,8 @@ function LoginForm() {
    };
     return (
         <form>
-            <div>
-                <label htmlFor="username">Username:</label>
+            <div className="input-group">
+                <label>Username</label>
                 <input 
                     type="text" 
                     id="username" 
@@ -44,8 +44,8 @@ function LoginForm() {
                     onChange={handleChange}
                 />
             </div>
-            <div>
-                <label htmlFor="password">Password:</label>
+            <div className="input-group">
+                <label>Password</label>
                 <input 
                     type="password" 
                     id="password" 

@@ -1,7 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 import useAuth from "../hooks/use-auth.js";
-import './NavBar.css';  // Add this line at the top of your NavBar component
-
+import './NavBar.css';
 
 function NavBar() {
    const { auth, setAuth } = useAuth();
@@ -11,34 +10,47 @@ function NavBar() {
        setAuth({ token: null });
    };
 
-   console.log(auth);
-
    return (
-       <div>
-           <nav>              
-               <NavLink to="/" className="nav-link" activeClassName="active">
-                   Home
-               </NavLink>
-
-               {auth.token ? (
-                   <NavLink to="/" onClick={handleLogout} className="nav-link">
-                       Log Out
+       <>
+           <nav>
+               <div className="nav-links">
+                   <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>
+                       Home
                    </NavLink>
-               ) : (
-                   <NavLink to="/login" className="nav-link">
-                       Login
+                   
+                   <NavLink to="/about" className={({ isActive }) => isActive ? "active" : ""}>
+                       About Us
                    </NavLink>
-               )}
 
-               <NavLink to="/signup" className="nav-link">
-                   Sign Up
-               </NavLink>
-               <NavLink to="/contactus" className="nav-link">
-                   Contact Us
-               </NavLink>
+                   {auth.token && (
+                       <NavLink to="/create-project" className={({ isActive }) => isActive ? "active" : ""}>
+                           Create Campaign
+                       </NavLink>
+                   )}
+
+                   {auth.token ? (
+                       <NavLink to="/" onClick={handleLogout}>
+                           Log Out
+                       </NavLink>
+                   ) : (
+                       <NavLink to="/login" className={({ isActive }) => isActive ? "active" : ""}>
+                           Login
+                       </NavLink>
+                   )}
+
+                   <NavLink to="/signup" className={({ isActive }) => isActive ? "active" : ""}>
+                       Sign Up
+                   </NavLink>
+                   
+                   <NavLink to="/contactus" className={({ isActive }) => isActive ? "active" : ""}>
+                       Contact Us
+                   </NavLink>
+               </div>
            </nav>
-           <Outlet />
-       </div>
+           <main>
+               <Outlet />
+           </main>
+       </>
    );
 }
 

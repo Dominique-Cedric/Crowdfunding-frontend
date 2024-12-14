@@ -1,65 +1,74 @@
-/* .project-card {
-    width: 100%;
-    border: 1px solid black;
-    box-shadow: 0px 0px 5px gray;
-  }
-  
-  .project-card img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-  } */
-
-  /* Project Card Container */
 .project-card {
-  background-color: white;  /* White background for the card */
-  border-radius: 10px;  /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Light shadow for depth */
-  overflow: hidden;  /* Ensures that content inside doesn’t overflow the card edges */
-  width: 300px;  /* Set fixed width */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Smooth transition on hover */
-  cursor: pointer;  /* Changes the cursor on hover */
-  margin: 2px;  /* Margin between cards */
-  text-align: center;  /* Centers the text */
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Hover effect */
 .project-card:hover {
-  transform: translateY(-5px);  /* Slight lift effect */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);  /* Darker shadow on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-/* Project Image */
-.project-card img {
-  width: 100%;  /* Full width */
-  height: 200px;  /* Fixed height for consistency */
-  object-fit: cover;  /* Ensures the image is properly cropped */
-  transition: opacity 0.3s ease;  /* Smooth transition for image opacity */
-}
-
-/* Project Image Hover Effect */
-.project-card:hover img {
-  opacity: 0.8;  /* Slight opacity change when hovering */
-}
-
-/* Project Title */
-.project-card h3 {
-  font-size: 18px;  /* Font size for the title */
-  color: #333;  /* Dark text color */
-  padding: 10px 0;  /* Padding around the title */
-  font-weight: 600;  /* Make title bold */
-  margin: 0;  /* Remove default margin */
-  text-transform: uppercase;  /* Uppercase title text */
-  letter-spacing: 1px;  /* Slight spacing between letters */
-}
-
-/* Link styling */
 .project-card a {
-  text-decoration: none;  /* Remove underline from the link */
+    text-decoration: none;
+    color: inherit;
 }
 
-/* Add a subtle transition for the card */
-.project-card a:hover {
-  text-decoration: underline;  /* Add underline effect on hover */
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-card-content {
+    padding: 1.5rem;
+}
+
+.project-card h3 {
+    margin: 0 0 1rem 0;
+    color: #1f2937;
+    font-size: 1.25rem;
+}
+
+.project-card .description {
+    color: #4b5563;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.project-card-meta {
+    display: grid;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.project-card .goal {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.project-card .status {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    display: inline-block;
+    font-weight: 500;
+}
+
+.project-card .status:not(.closed) {
+    background-color: #ecfdf5;
+    color: #059669;
+}
+
+.project-card .status.closed {
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.project-card .date {
+    color: #6b7280;
+    font-size: 0.875rem;
 }
 

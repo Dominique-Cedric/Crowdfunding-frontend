@@ -1,51 +1,289 @@
+:root {
+    --primary-color: hsl(214, 100%, 48%);
+    --primary-hover: hsl(214, 100%, 43%);
+    --text-color: #252525;
+    --font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', Helvetica, Arial, sans-serif;
+    --box-shadow: 0 2px 6px -1px rgba(0,0,0,0.2), 0 8px 24px -4px rgba(0,0,0,0.4);
+}
 
-/* Basic layout for the page */
+main {
+    margin-top: 0px;
+    padding: 50px;
+}
+
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+.page-wrapper {
+    min-height: calc(100vh - var(--header-height, 0px) - 100px);
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f5f5;
+    min-width: calc(100vw - 100px);
+    margin: 0;
+    padding: 0;
+}
+
 .login-page {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 0;
+    width: 100%;
+    max-width: 100vw;
+}
+
+.login-container {
+    background-color: white;
+    padding: 2.5rem 3.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    width: 100%;
+    max-width: 600px;
+}
+
+.login-container:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+    transition: box-shadow 0.3s ease;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem 2rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-weight: 500;
+    color: #374151;
+}
+
+.input-group input {
+    padding: 1rem 1.25rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+    background-color: white;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+button[type="submit"] {
+    padding: 0.75rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 1rem;
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 1rem 0;
+    display: block;
+}
+
+.login-header h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: -0.025em;
+    display: block;
+}
+
+.login-header p {
+    font-size: 1.1rem;
+    color: #6b7280;
+    margin: 0;
+    display: block;
+}
+
+.forgot-password-link {
+    text-align: center;
+    margin-top: 1.25rem;
+}
+
+.forgot-password-link p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.forgot-password-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.forgot-password-link a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+.signup-section {
+    text-align: center;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.signup-section p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.signup-section p:first-child {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.signup-button {
+    display: inline-block;
+    margin-top: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background-color: white;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 0.25em;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.signup-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.login-footer {
+    width: 100%;
+    padding: 2rem;
+    background-color: white;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: auto;
+}
+
+.login-footer .copyright {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.login-footer .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.login-footer .footer-links a {
+    color: #666;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.login-footer .footer-links a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        padding: 2rem;
+        width: 95%;
+    }
+
+    .login-header h2 {
+        font-size: 1.75rem;
+    }
+
+    input[type="text"], 
+    input[type="password"],
+    button {
+        padding: 0.875rem;
+        font-size: 1rem;
+    }
+
+    .footer-links {
+        gap: 1rem;
+    }
+}
+
+@media (max-height: 800px) {
+    .login-container {
+        padding: 1.5rem;
+    }
+    
+    .input-group {
+        margin-bottom: 0.25rem;
+    }
+    
+    .login-header {
+        margin-bottom: 1rem;
+    }
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #1f2937;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    padding-top: 2rem;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.content-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0; /* Light gray background */
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Container for the Login Form */
-  .login-container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px; /* Max width of the login container */
-  }
-  
-  /* Styling the form elements */
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* Input fields */
-  input[type="text"], input[type="password"] {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-  }
-  
-  /* Submit button */
-  button {
-    padding: 12px;
-    background-color: #528ff0; /* Green background */
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
+    padding: 2rem;
+    min-height: calc(100vh - 200px);
+}

@@ -1,14 +1,15 @@
 import { useState } from "react";
-import postUser from "../api/post-user.js";
 import { useNavigate } from "react-router-dom";
 
 function SignUpForm() {
-    const navigate = useNavigate();  
+    const navigate = useNavigate();
     const [credentials, setCredentials] = useState({
         username: "",
         email: "",
         password: "",
+        confirmPassword: ""
     });
+
     const handleChange = (event) => {
         const { id, value } = event.target;
         setCredentials((prevCredentials) => ({
@@ -16,54 +17,75 @@ function SignUpForm() {
             [id]: value,
         }));
     };
-   const handleSubmit = (event) => {
-       event.preventDefault();
-       if (credentials.username && credentials.password && credentials.email) {
-           postUser(
-               credentials.username,
-               credentials.email,
-               credentials.password
-           ).then((response) => {
-            window.localStorage.setItem("token", response.token);
-             navigate("/");
-           });
-       }
-   };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // Add your signup logic here
+        // Then navigate to login or home page
+        navigate("/login");
+    };
+
     return (
         <form>
-            <div>
-                <label htmlFor="username">Username:</label>
+            <div className="input-group">
+                <label>Username</label>
                 <input 
                     type="text" 
                     id="username" 
-                    placeholder="Enter username" 
+                    placeholder="Choose a username" 
                     onChange={handleChange}
+                    style={{ 
+                        WebkitAppearance: 'none',
+                        MozAppearance: 'textfield'
+                    }}
                 />
             </div>
-            <div>
-                <label htmlFor="email">Email:</label>
+            <div className="input-group">
+                <label>Email</label>
                 <input 
-                    type="email" 
+                    type="text" 
                     id="email" 
-                    placeholder="Email" 
+                    placeholder="Enter your email" 
                     onChange={handleChange}
+                    style={{ 
+                        WebkitAppearance: 'none',
+                        MozAppearance: 'textfield'
+                    }}
                 />
             </div>
-            <div>
-                <label htmlFor="password">Password:</label>
+            <div className="input-group">
+                <label>Password</label>
                 <input 
                     type="password" 
                     id="password" 
-                    placeholder="Password" 
+                    placeholder="Create a password" 
                     onChange={handleChange}
+                    style={{ 
+                        WebkitAppearance: 'none',
+                        MozAppearance: 'textfield'
+                    }}
                 />
             </div>
-           <button type="submit" onClick={handleSubmit}>
-               Sign Up
-           </button>
+            <div className="input-group">
+                <label>Confirm Password</label>
+                <input 
+                    type="password" 
+                    id="confirmPassword" 
+                    placeholder="Confirm your password" 
+                    onChange={handleChange}
+                    style={{ 
+                        WebkitAppearance: 'none',
+                        MozAppearance: 'textfield'
+                    }}
+                />
+            </div>
+            <button type="submit" onClick={handleSubmit}>
+                Create Account
+            </button>
         </form>
     );
 }
+
 export default SignUpForm;
 
 
