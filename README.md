@@ -1,8 +1,32 @@
-# React + Vite
+# Rising Athletes - Support our future Super Stars
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### The platform aims to support children in sports by raising funds and incentives for families facing unexpected expenses such as travel and accommodation; sporting gear and fees and levys.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Deployed at:
+[Backend] https://risingathletes-495c4007dfac.herokuapp.com
+
+[Frontend] (https://warm-paprenjak-8018c5.netlify.app/)
+
+
+### Step by step instructions for how to register a new user and create a new project 
+​
+
+###Screen Shots of pages
+Homepage
+
+
+Project creation page
+
+
+Pledge creation form
+
+
+Project with pledges
+
+
+
+Unauthorzed user attempt to edit project (optional)
+
+
+
