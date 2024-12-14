@@ -6,7 +6,6 @@
 ## Built With and technologies used:
 
 - [Django Framework](https://docs.djangoproject.com/en/)
-- [Fly.io](https://fly.io/docs/)
 - [Insomnia] (https://docs.insomnia.rest/)
 
 ## Deployed at:
