@@ -10,9 +10,9 @@
 - [Insomnia] (https://docs.insomnia.rest/)
 
 ## Deployed at:
-[Rising Athletes] https://risingathletes-495c4007dfac.herokuapp.com
+[Backend] https://risingathletes-495c4007dfac.herokuapp.com
 
-
+[Frontend] (https://warm-paprenjak-8018c5.netlify.app/)
 
 
 ### Step by step instructions for how to register a new user and create a new project (i.e. endpoints and body data).
