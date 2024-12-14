@@ -3,11 +3,6 @@
 ### The platform aims to support children in sports by raising funds and incentives for families facing unexpected expenses such as travel and accommodation; sporting gear and fees and levys.
 
 
-## Built With and technologies used:
-
-- [Django Framework](https://docs.djangoproject.com/en/)
-- [Insomnia] (https://docs.insomnia.rest/)
-
 ## Deployed at:
 [Backend] https://risingathletes-495c4007dfac.herokuapp.com
 
