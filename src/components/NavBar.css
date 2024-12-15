@@ -1,72 +1,102 @@
 /* Navbar container */
 nav {
-    background-color: #333;
-    padding: 0.5rem 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
-    box-sizing: border-box;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Navbar links container */
-.nav-links {
+    background: linear-gradient(45deg, #9c27b0, #673ab7);
+    padding: 1px 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    width: 100%;
-    padding: 0 2rem;
+    box-shadow: 0 1px 2px rgba(156, 39, 176, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    min-height: 16px;
 }
 
-/* Individual navbar links */
-.nav-links a {
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 3px;
+    align-items: center;
+    height: 100%;
+}
+
+nav a,
+.nav-item {
     color: white;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 6px;
     font-weight: 500;
-    padding: 0.4rem 1rem;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    line-height: 1.2;
-    text-align: center;
+    transition: all 0.2s ease;
+    padding: 1px 3px;
+    border-radius: 2px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1;
+    font-family: inherit;
+    white-space: nowrap;
+    margin: 0;
+    appearance: none;
+    -webkit-appearance: none;
 }
 
-/* Hover effects */
-.nav-links a:hover {
+nav a:hover,
+.nav-item:hover {
+    color: #f3e5f5;
     background-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
 }
 
-/* Active link styling */
-.nav-links a.active {
-    background-color: var(--primary-color);
+.logo {
+    font-size: 8px;
+    font-weight: bold;
     color: white;
+    background: linear-gradient(45deg, #fff, #f3e5f5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0;
+    margin-right: 4px;
 }
 
-/* Responsive design */
+.logo:hover {
+    background: linear-gradient(45deg, #f3e5f5, #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: scale(1.01);
+}
+
+/* Active link styles */
+nav a.active,
+.nav-item.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    font-weight: 600;
+}
+
 @media (max-width: 768px) {
     nav {
-        padding: 1rem;
+        padding: 1px 4px;
+        min-height: 14px;
     }
 
-    .nav-links {
-        gap: 1.5rem;
-        flex-wrap: wrap;
+    nav ul {
+        gap: 2px;
     }
 
-    .nav-links a {
-        font-size: 1.1rem;
-        padding: 0.5rem 1rem;
+    nav a,
+    .nav-item {
+        font-size: 5px;
+        padding: 1px 2px;
+    }
+
+    .logo {
+        font-size: 7px;
     }
 }
 
 /* Add this to the end of NavBar.css */
 main {
-    margin-top: 20px;
-    padding: 20px;
+    margin-top: 16px;
+    padding: 16px;
 }

@@ -1,34 +1,53 @@
-import useProjects from "../hooks/use-projects";
-import ProjectCard from "../components/ProjectCard";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { useAuth } from '../components/AuthProvider';
+import CampaignCard from '../components/CampaignCard';
+import { Link } from 'react-router-dom';
 import "../HomePage.css";
 
-function HomePage() {
-    const { projects, isLoading, error } = useProjects();
+function Home() {
+    const { auth } = useAuth();
+    const [projects, setProjects] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    if (isLoading) {
-        return <div>Loading projects...</div>;
-    }
+    useEffect(() => {
+        const fetchProjects = async () => {
+            try {
+                const response = await fetch('https://risingathletes-495c4007dfac.herokuapp.com/projects/');
+                const data = await response.json();
+                if (response.ok) {
+                    setProjects(data);
+                } else {
+                    setError('Failed to fetch projects');
+                }
+            } catch (err) {
+                setError('Error loading projects');
+            } finally {
+                setLoading(false);
+            }
+        };
 
-    if (error) {
-        return <div>Error loading projects: {error.message}</div>;
-    }
+        fetchProjects();
+    }, []);
+
+    if (loading) return <div>Loading projects...</div>;
+    if (error) return <div>Error: {error}</div>;
 
     const activeProjects = projects.filter(project => project.is_open);
     const closedProjects = projects.filter(project => !project.is_open);
-    
+
     return (
         <div className="page-wrapper">
             <div className="content-wrapper">
                 {/* Active Campaigns Section */}
-                <section className="projects-section mb-16">
+                <section className="projects-section mb-12">
                     <h2 className="section-title text-2xl font-bold mb-6">Active Campaigns</h2>
                     <div className="project-list">
                         {activeProjects.map((projectData) => (
-                            <ProjectCard 
+                            <CampaignCard 
                                 key={projectData.id} 
-                                projectData={projectData} 
-                                className="shadow-lg"
+                                campaign={projectData}
+                                showDonateButton={!!auth.token}
                             />
                         ))}
                     </div>
@@ -39,17 +58,16 @@ function HomePage() {
                     <h2 className="section-title text-2xl font-bold mb-6">Completed Campaigns</h2>
                     <div className="project-list">
                         {closedProjects.map((projectData) => (
-                            <ProjectCard 
+                            <CampaignCard 
                                 key={projectData.id} 
-                                projectData={projectData} 
-                                className="shadow-lg"
+                                campaign={projectData}
                             />
                         ))}
                     </div>
                 </section>
             </div>
 
-            <footer className="login-footer">
+            <footer className="login-footer" style={{ marginTop: 'auto' }}>
                 <p className="copyright">© 2024 Rising Athletes, Inc. All Rights Reserved</p>
                 <div className="footer-links">
                     <Link to="/terms">Terms and Conditions</Link>
@@ -61,4 +79,4 @@ function HomePage() {
     );
 }
 
-export default HomePage;
+export default Home; 

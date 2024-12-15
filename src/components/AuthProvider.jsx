@@ -1,19 +1,46 @@
-import { createContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
-// Here we create the Context
+// Export the context so it can be imported by the hook
 export const AuthContext = createContext();
 
-// Here we create the component that will wrap our app, this means all it children can access the context using are hook.
-export const AuthProvider = (props) => {
-  // Using a object for the state here, this way we can add more properties to the state later on like user id.
-  const [auth, setAuth] = useState({
-    // Here we initialize the context with the token from local storage, this way if the user refreshes the page we can still have the token in memory.
-    token: window.localStorage.getItem("token"),
-  });
+export function AuthProvider({ children }) {
+    const [auth, setAuth] = useState(() => {
+        const token = localStorage.getItem('token');
+        console.log('Initial token from localStorage:', token);
+        return { token };
+    });
 
-  return (
-    <AuthContext.Provider value={{ auth, setAuth }}>
-      {props.children}
-    </AuthContext.Provider>
-  );
-};
+    const login = (userData) => {
+        console.log('Login called with:', userData);
+        if (!userData.token) {
+            console.error('No token provided in login data');
+            return;
+        }
+        localStorage.setItem('token', userData.token);
+        setAuth({ token: userData.token });
+    };
+
+    const logout = () => {
+        console.log('Logout called');
+        localStorage.removeItem('token');
+        setAuth({ token: null });
+    };
+
+    useEffect(() => {
+        console.log('Auth state updated:', auth);
+    }, [auth]);
+
+    return (
+        <AuthContext.Provider value={{ auth, login, logout }}>
+            {children}
+        </AuthContext.Provider>
+    );
+}
+
+export function useAuth() {
+    const context = useContext(AuthContext);
+    if (!context) {
+        throw new Error('useAuth must be used within an AuthProvider');
+    }
+    return context;
+}

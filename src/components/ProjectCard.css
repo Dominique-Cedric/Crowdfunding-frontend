@@ -40,31 +40,39 @@
 
 .project-card-meta {
     display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 0.5rem;
+    margin-top: 1rem;
     font-size: 0.9rem;
-    color: #6b7280;
+    color: #4b5563;
 }
 
-.project-card .goal {
-    color: var(--primary-color);
+.project-card-meta p {
+    margin: 0;
+}
+
+.goal, .current {
     font-weight: 600;
 }
 
-.project-card .status {
+.goal {
+    color: #4f46e5;  /* Purple for goal amount */
+}
+
+.current {
+    color: #059669;  /* Green for current amount */
+}
+
+.status {
     padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    display: inline-block;
+    border-radius: 9999px;
+    font-size: 0.875rem;
     font-weight: 500;
+    text-align: center;
 }
 
-.project-card .status:not(.closed) {
-    background-color: #ecfdf5;
-    color: #059669;
-}
-
-.project-card .status.closed {
-    background-color: #fef2f2;
-    color: #dc2626;
+.status:empty {
+    display: none;
 }
 
 .project-card .date {

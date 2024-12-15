@@ -168,7 +168,53 @@ nav ul li a:hover::after {
 }
 
 .content-wrapper {
-    flex: 1 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    min-height: calc(100vh - 200px);
+    flex-direction: column;
+}
+
+.projects-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* 3 cards per row */
+    gap: 1.5rem;  /* Space between cards */
+    width: 100%;
+}
+
+/* Add space between project cards */
+.project-card {
+    margin-bottom: 0;  /* Remove bottom margin since we're using grid gap */
+    background-color: #f3e5f5;
+    border-radius: 12px;  /* Slightly larger border radius */
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    max-width: 600px;  /* Increased from 400px to 600px */
+    margin: 0 auto;  /* Center cards in their grid cells */
+}
+
+.project-card:hover {
+    transform: translateY(-8px);  /* More pronounced lift */
+    box-shadow: 0 8px 16px rgba(147, 112, 219, 0.3);  /* Larger, more visible shadow */
+    background-color: #f8efff;  /* Slightly lighter purple on hover */
+    border-color: #ce93d8;  /* Purple border appears on hover */
+    cursor: pointer;  /* Changes cursor to pointer on hover */
+}
+
+/* Remove margin from last card in each section */
+.project-card:last-child {
+    margin-bottom: 0;
+}
+
+.login-footer {
+    margin-top: auto;
 }
 
 .login-footer {
@@ -228,21 +274,25 @@ nav ul li a:hover::after {
 
 #project-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);  /* Three columns */
-    gap: 2rem;
-    padding: 1rem;
+    grid-template-columns: repeat(2, 1fr);  /* Changed to 2 cards per row */
+    gap: 2.5rem;  /* Increased gap for wider cards */
+    width: 100%;
+    padding: 1.5rem;
 }
 
 /* Responsive adjustments */
-@media (max-width: 1024px) {
-    #project-list {
+@media (max-width: 1400px) {  /* Adjusted breakpoint for wider cards */
+    .project-list {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 640px) {
-    #project-list {
-        grid-template-columns: 1fr;
+@media (max-width: 1024px) {
+    .project-list {
+        grid-template-columns: 1fr;  /* Single column on medium screens */
+    }
+    .project-card {
+        max-width: 800px;  /* Even wider on single column */
     }
 }
 
@@ -278,5 +328,87 @@ nav ul li a:hover::after {
     .projects-container {
         flex-direction: column;
     }
+}
+
+/* Add or update these styles */
+.projects-section {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;  /* Add padding around each section */
+    background-color: #fff;  /* White background */
+    border-radius: 8px;  /* Rounded corners */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
+    margin-bottom: 3rem;  /* More space between sections */
+}
+
+.section-title {
+    font-size: 2rem;
+    color: #1f2937;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #4f46e5;  /* Underline for section titles */
+    width: 100%;  /* Full width underline */
+}
+
+/* Add space between the sections */
+.projects-section + .projects-section {
+    margin-top: 4rem;  /* Additional space between sections */
+}
+
+/* Make the project cards more compact */
+.project-card {
+    margin-bottom: 0;  /* Remove bottom margin since we're using grid gap */
+    background-color: #f3e5f5;
+    border-radius: 12px;  /* Slightly larger border radius */
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    max-width: 400px;  /* Increased from 300px */
+    margin: 0 auto;  /* Center cards in their grid cells */
+}
+
+/* Make the project card content more compact */
+.project-card img {
+    height: 220px;  /* Increased from 160px */
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+    width: 100%;
+}
+
+.project-card-content {
+    padding: 1.5rem;  /* Increased from 1rem */
+}
+
+.project-card-content h3 {
+    font-size: 1.4rem;  /* Increased from 1.1rem */
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.project-card-content .description {
+    font-size: 1.1rem;  /* Increased from 0.9rem */
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .project-list {
+        grid-template-columns: repeat(2, 1fr);  /* 2 cards per row on medium screens */
+    }
+}
+
+@media (max-width: 640px) {
+    .project-list {
+        grid-template-columns: 1fr;  /* 1 card per row on small screens */
+    }
+}
+
+/* Update image height for wider cards */
+.project-card img {
+    height: 280px;  /* Increased height for better proportion */
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+    width: 100%;
 }
 

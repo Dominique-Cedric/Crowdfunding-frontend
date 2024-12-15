@@ -7,10 +7,7 @@ function ProjectCard({ projectData }) {
         title,
         description,
         goal_amount,
-        goalAmount,
-        goal,
-        amount,
-        target_amount,
+        current_amount,
         image_url,
         is_open,
         date_created
@@ -19,20 +16,28 @@ function ProjectCard({ projectData }) {
     // Format the date
     const formattedDate = new Date(date_created).toLocaleDateString();
     
-    // Try different possible goal amount properties
-    const actualGoalAmount = goal_amount || goalAmount || goal || amount || target_amount || 0;
-    
-    // Format the goal amount as currency
+    // Format the amounts as currency, with fallbacks for undefined values
     const formattedGoal = new Intl.NumberFormat('en-AU', {
         style: 'currency',
         currency: 'AUD'
-    }).format(actualGoalAmount);
+    }).format(goal_amount || 0);  // Add fallback to 0 if undefined
 
-    // Debug log to see all project data
-    console.log('Full Project Data:', projectData);
+    const formattedCurrentAmount = new Intl.NumberFormat('en-AU', {
+        style: 'currency',
+        currency: 'AUD'
+    }).format(current_amount || 0);
+
+    // Add console.log to debug the values
+    console.log('Project Data:', {
+        id,
+        title,
+        goal_amount,
+        current_amount,
+        raw_data: projectData
+    });
 
     return (
-        <div className="project-card">
+        <div className="project-card mb-8">
             <Link to={`/project/${id}`}>
                 <img src={image_url} alt={title} />
                 <div className="project-card-content">
@@ -40,6 +45,7 @@ function ProjectCard({ projectData }) {
                     <p className="description">{description}</p>
                     <div className="project-card-meta">
                         <p className="goal">Goal: {formattedGoal}</p>
+                        <p className="current">Current: {formattedCurrentAmount}</p>
                         <p className="status">{is_open ? "Active" : "Closed"}</p>
                         <p className="date">Created: {formattedDate}</p>
                     </div>
