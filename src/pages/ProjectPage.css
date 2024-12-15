@@ -270,4 +270,151 @@
     .cancel-button {
         width: 100%;
     }
+}
+
+.progress-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    margin: 2rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.progress-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+.progress-percentage {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #9c27b0;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 12px;
+    background-color: #f3e5f5;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(45deg, #9c27b0, #673ab7);
+    border-radius: 6px;
+    transition: width 0.3s ease;
+}
+
+/* Add animation for progress bar */
+@keyframes progressFill {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.progress-bar {
+    animation: progressFill 1s ease-out;
+}
+
+.share-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    margin: 2rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.share-section h3 {
+    font-size: 1.4rem;
+    color: #4a5568;
+    margin-bottom: 1.5rem;
+}
+
+.share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.share-button {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: none;
+}
+
+.share-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.share-button.facebook {
+    background: #1877f2;
+}
+
+.share-button.twitter {
+    background: #1da1f2;
+}
+
+.share-button.linkedin {
+    background: #0077b5;
+}
+
+.share-button.whatsapp {
+    background: #25d366;
+}
+
+.share-button.copy-link {
+    background: #4a5568;
+}
+
+/* Add hover effects */
+.share-button.facebook:hover {
+    background: #1664d9;
+}
+
+.share-button.twitter:hover {
+    background: #1a91da;
+}
+
+.share-button.linkedin:hover {
+    background: #006399;
+}
+
+.share-button.whatsapp:hover {
+    background: #20bd5c;
+}
+
+.share-button.copy-link:hover {
+    background: #2d3748;
+}
+
+@media (max-width: 768px) {
+    .share-buttons {
+        gap: 0.75rem;
+    }
+
+    .share-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
 } 

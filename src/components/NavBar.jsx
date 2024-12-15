@@ -6,7 +6,7 @@ function NavBar() {
     const { auth, logout } = useAuth();
 
     return (
-        <nav>
+        <nav className="navbar-container">
             <Link to="/" className="logo">Rising Athletes</Link>
             <ul>
                 <li><NavLink to="/" end>Home</NavLink></li>
