@@ -2,7 +2,7 @@
 
 # React Project: Crowdfunding App (Part 2)<br><sub><sup><sub>Due: Last Sunday of the module at 11:59pm.</sub></sup></sub>
 
-# Rising Athletes - Support our future Super Stars
+## Rising Athletes - Support our future Super Stars
 
 ## Project Description
 The platform aims to support children in sports by raising funds and incentives for families facing unexpected expenses such as travel and accommodation; sporting gear and fees and levys.
@@ -53,10 +53,10 @@ To submit, fill out [this Google form](https://forms.gle/34ymxgPhdT8YXDgF6), inc
 
 Please include the following in your readme doc:
 - [X] A link to the deployed project.   https://warm-paprenjak-8018c5.netlify.app/
-- [ ] A screenshot of the homepage
-- [ ] A screenshot of the project creation page
-- [ ] A screenshot of the project creation form
-- [ ] A screenshot of a project with pledges
-- [ ] A screenshot of the resulting page when an unauthorized user attempts to edit a project (optional, depending on whether or not this functionality makes sense in your app!)
+- [X] A screenshot of the homepage.   https://github.com/Dominique-Cedric/Crowdfunding-frontend/blob/master/Images/homepage.PNG 
+- [X] A screenshot of the project creation page.   https://github.com/Dominique-Cedric/Crowdfunding-frontend/blob/master/Images/project%20creation%20page.PNG
+- [X] A screenshot of the project creation form.  https://github.com/Dominique-Cedric/Crowdfunding-frontend/blob/master/Images/Project%20creation%20form.PNG
+- [ ] A screenshot of a project with pledges.  ***Had issues completing this step ***
+- [ ] A screenshot of the resulting page when an unauthorized user attempts to edit a project (optional, depending on whether or not this functionality makes sense in your app!) ***Had issues completing this step ***
 
 
